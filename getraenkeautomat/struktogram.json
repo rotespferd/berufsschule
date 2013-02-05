@@ -1,0 +1,60 @@
+{
+    "content":[
+		{
+            "type":"block",
+            "content": 
+            "Fließkommazahl preisKaffee := 1.00;\nFließkommazahl preisKakao := 0.80;\nFließkommazahl benoetigterBetrag;\nFließkommazahl wertEingabeBenutzerSumme;\nFließkommazahl muenzeinwurfBenutzer;\nBuchstabe getraenkewahlBenutzer;"
+        },
+        {
+            "type": "dowhile",
+            "condition": "while getraenkewahlBenutzer != 'A' OR getraenkewahlBenutzer != 'B'",
+            "content": "Anzeigen 'Bitte wählen Sie A für Kaffee oder B für Kakao'\ngetraenkewahlBenutzer := Benutzereingabe;"
+        },
+		{
+			"type": "if",
+			"condition": "getraenkewahlBenutzer == 'A'",
+			"true": 
+                [
+                    {
+                        "type": "block",
+                        "content": "benoetigterBetrag = preisKaffee;"
+                    }
+                ],
+            "false":
+                [
+                    {
+                        "type": "block",
+                        "content": "benoetigterBetrag = preisKakao;"
+                    }
+                ]
+		},
+        {
+            "type": "dowhile",
+            "condition": "while wertEingabeBenutzerSumme < benoetigterBetrag",
+            "content": [
+                {
+                    "type": "block",
+                    "content": "Ausgabe 'Bitte geben Sie ' + benoetigterBetrag + ' Euro ein!';\nmuenzeinwurfBenutzer := Eingabe;\nwertEingabeBenutzerSumme += muenzeinwurfBenutzer;"
+                }
+            ]
+        },
+        {
+            "type": "block",
+            "content": "Ausgabe 'Getränk wird hergestellt';"
+        },
+        {
+            "type": "if",
+            "condition": "wertEingabeBenutzerSumme > benoetigterBetrag",
+            "true": 
+                [
+                    {
+                        "type": "block",
+                        "content": "Ausgabe 'Ihr Rückgeld beträgt ' + benoetigterBetrag-wertEingabeBenutzerSumme"
+                    }
+                ]
+        }
+	],
+    "type":"root",
+	"description": "a firmware for a drink automator",
+	"author": "Marian Sievers"
+}

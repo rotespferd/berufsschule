@@ -18,3 +18,6 @@
 
 # xcode project
 *.xcodeproj
+
+# OSX only files
+.DS_Store

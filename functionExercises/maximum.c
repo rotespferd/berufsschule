@@ -4,7 +4,16 @@
 
 #include <stdio.h>
 
-int main() {
+int maximum(int numberA, int numberB) {
+    if (numberA > numberB)
+    {
+        return numberA;
+    } else {
+        return numberB;
+    }
+}
 
-  return 0;
+int main() {
+    printf("The biggest number is %i\n", maximum(12, 42));
+    return 0;
 }

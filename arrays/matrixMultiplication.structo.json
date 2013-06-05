@@ -1,0 +1,47 @@
+{
+    "content":[
+		{
+            "type":"block",
+            "content": "Ganzzahl matrixSize := 2\nGanzzahl matrixA[2, 2] := {{1,3},{2,6}}\nGanzzahl matrixB[2, 2] := {{4,2}, {3,5}}\nGanzzahl matrixResult[2, 2]"
+    },
+		{
+			"type": "for",
+			"condition": "Ganzzahl i := 0; i < matrixSize; i++",
+			"content":
+                [
+                    {
+                        "type": "for",
+                        "condition": "Ganzzahl j := 0; j < matrixSize; j++",
+                        "content": [
+                          {
+                            "type": "block",
+                            "content": "Ganzzahl tmpsum := 0"
+                          },
+                          {
+                            "type": "for",
+                            "condition": "Ganzzahl z := 0; z < matrixSize; z++",
+                            "content": [
+                              {
+                                "type": "block",
+                                "content": "tmpsum := tmpsum + matrixA[i, z] * matrixB[z, j]"
+                              }
+
+                            ]
+                          },
+                          {
+                            "type": "block",
+                            "content": "matrixResult[x, y] := tmpsum"
+                          }
+                        ]
+                    },
+                    {
+                        "type": "block",
+                        "content": "x = x-1;"
+                    }
+                ]
+		}
+	],
+  "type":"root",
+	"description": "Matrix multiplication",
+	"author": "Marian Sievers"
+}

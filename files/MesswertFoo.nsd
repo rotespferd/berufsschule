@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root text="&#34;Messwert-Foo&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;Fließkomma messwerte[100]&#34;,&#34;Ganzzahl anzahlWerte&#34;,&#34;Fließkomma benutzerWert&#34;,&#34;Fließkomma b&#34;,&#34;Fließkomma c&#34;,&#34;Fließkomma d&#34;,&#34;Fließkomma e&#34;,&#34;&#34;,&#34;Charakter benutzerEingabe&#34;,&#34;&#34;,&#34;Fließkomma groessterWert&#34;,&#34;Fließkomma kleinsterWert&#34;,&#34;Fließkomma durchschnitt&#34;,&#34;Fließkomma summe&#34;,&#34;&#34;,&#34;Dateipointer f&#34;,&#34;&#34;,&#34;durchschnit := 0.0&#34;,&#34;summe := 0.0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;setze Dateipointer f&#34;,&#34;öffne Datei mit f&#34;,&#34;lese erste Ganzzahl und speichere diese in anzahlWerte&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;for Ganzzahl i = 0; i &#60; anzahlWerte; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<instruction text="&#34;lese nächste Fließkommazahl von f und speichere sie in messwerte[i]&#34;,&#34;summe := summe + messwerte[i]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<alternative text="&#34;if i = 0&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;groessterWert := messwerte[i]&#34;,&#34;kleinsterWert := messwerte[i]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;if messwerte[i] &#62; groessterWert&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;groessterWert := messwerte[i]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<alternative text="&#34;if messwerte[i] &#60; kleinsterWert&#34;" comment="&#34;&#34;" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;kleinsterWert := messwerte[i]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+							</qFalse>
+						</alternative>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<instruction text="&#34;schließe Datei f&#34;,&#34;durchschnitt := summe / anzahlWerte&#34;,&#34;&#34;,&#34;zeige benutzerauswahl an&#34;,&#34;lese eingabe in benutzerEingabe&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<case text="&#34;case benutzerEingabe&#34;,&#34;b&#34;,&#34;s&#34;,&#34;d&#34;,&#34;n&#34;,&#34;default&#34;" comment="&#34;&#34;" color="ffffff">
+			<qCase>
+				<instruction text="&#34;ausgabe groessterWert&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;ausgabe kleinsterWert&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;ausgabe durchschnitt&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;gebe ausgabe aus&#34;,&#34;lese benutzereingabe in benutzerWert ein&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qCase>
+			<qCase>
+			</qCase>
+		</case>
+		<instruction text="&#34;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>
